@@ -1,0 +1,53 @@
+#!/bin/sh
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+# so all binaries are visible in dmenu_run
+export PATH="$PATH:$HOME/.i3/bin:$HOME/.bin:$HOME/bin"
+
+# logging in with dock
+[ "$?" -eq 0 ] && $HOME/.i3/dockery.sh dock &
+
+# use xresources
+xrdb -merge ~/.i3/xresources
+
+# multiple screen setup
+#[ -e ~/.screen_setup ] && source ~/.screen_setup
+
+
+# pulse audio session
+#start-pulseaudio-x11
+
+# keyboard layout
+xmodmap ~/.i3/xmodmap
+[ -e ~/.xmodmap_local ] && xmodmap ~/.xmodmap_local
+
+# color temperature adjustment, set for Gdańsk
+redshift -l 52.22:4.53 -m randr -t 6200:5000  &
+#redshift -c ~/.config/redshift.conf
+
+urxvtd &
+
+
+# gpg agent
+#export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+#gpg-connect-agent updatestartuptty /bye
+
+# composition manager
+#compton --config ~/.i3/compton.conf &
+compton -D0 -r3 -m0 --backend glx -i1 -e1 &
+
+# Network Manager applet
+#>> /dev/null which nm-applet && nm-applet &
+#>> /dev/null which blueman--applet && blueman-applet &
+
+#xcape
+
+i3
+#exec cinnamon-session
+#exec Lumina-DE

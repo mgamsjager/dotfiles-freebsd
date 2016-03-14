@@ -1,0 +1,66 @@
+! vim: set filetype=xdefaults :
+
+URxvt.perl-ext-common : default,keyboard-select,url-select,clipboard,font-size
+
+URxvt.keysym.M-x           : perl:keyboard-select:activate
+URxvt.keysym.M-u           : perl:url-select:select_next
+URxvt.keysym.M-c           : perl:clipboard:copy
+URxvt.keysym.M-v           : perl:clipboard:paste
+URxvt.keysym.M-s           : perl:keyboard-select:search
+URxvt.keysym.M-C-v         : perl:clipboard:paste_escaped
+URxvt.url-select.launcher  : firefox
+URxvt.url-select.autocopy  : true
+URxvt.url-select.underline : true
+
+! https://github.com/majutsushi/urxvt-font-size
+URxvt.keysym.C-equal:     perl:font-size:increase
+URxvt.keysym.C-minus:   perl:font-size:decrease
+
+!URxvt.font        : xft:Source Code Pro Light:size=11px
+URxvt.font        : xft:PragmataPro:size=11, xft:Source Code Pro Light:size=11px
+!URxvt.font        : xft:Inconsolata:size=11, xft:Source Code Pro Light:size=11px
+!URxvt.font        : xft:Anonymice Powerline:size=11px, xft:PowerlineSymbols
+URxvt*letterSpace : -1 
+
+!URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=11,xft:Sazanami Gothic
+URxvt.termName    : rxvt-256color
+URxvt.iso14755    : false
+
+URxvt.urgentOnBell: true
+
+URxvt.saveLines   : 12000
+URxvt.scrollBar   : false
+URxvt.scrollstyle : rxvt
+
+! XFT
+Xft.dpi:        96
+Xft.lcdfilter : lcddefault
+Xft.hintstyle : hintslight
+Xft.hinting   : true
+Xft.antialias : true
+Xft.rgba      : rgb
+
+!Fading
+URxvt.fading    : 50
+URxvt.fadeColor : #29303a
+
+#include "dark.xresources"
+
+! xterm ----------------------------------------------------------------------
+!
+ xterm*VT100.geometry:     80x25
+ xterm*faceName:           Anonymice Powerline:size=11
+ xterm*locale: true  
+ xterm*dynamicColors:      true
+ xterm*utf8:               2
+ xterm*eightBitInput:      true
+ xterm*saveLines:          512
+ xterm*scrollKey:          true
+ xterm*scrollTtyOutput:    false
+ xterm*scrollBar:          true
+ xterm*rightScrollBar:     true
+ xterm*jumpScroll:         true
+ xterm*multiScroll:        true
+ xterm*toolBar:            false
+ XTerm*foreground: rgb:b2/b2/b2
+ XTerm*background: rgb:08/08/08
